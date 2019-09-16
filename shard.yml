@@ -1,0 +1,9 @@
+name: priority_queue
+version: 0.1.0
+
+authors:
+  - ktanaka101 <kentanaka101@gmail.com>
+
+crystal: 0.30.1
+
+license: MIT
