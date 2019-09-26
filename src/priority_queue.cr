@@ -33,16 +33,20 @@ module PriorityQueue(T)
       if @a.empty?
         yield
       else
-      maxv = @a[0]
-      @a.size > 1 ? (@a[0] = @a.pop) : @a.pop
-      max_heapify(0)
+        maxv = @a[0]
+        @a.size > 1 ? (@a[0] = @a.pop) : @a.pop
+        max_heapify(0)
 
-      maxv
-    end
+        maxv
+      end
     end
 
     def pop : T
       pop { raise IndexError.new }
+    end
+
+    def pop? : T?
+      pop { nil }
     end
 
     private def increase_key(i, key)

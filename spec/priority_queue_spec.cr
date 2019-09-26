@@ -3,62 +3,62 @@ require "./spec_helper"
 describe PriorityQueue do
   describe "#pop" do
     it "returns the value of max priority" do
-    q = PriorityQueue(Int32).build
-    q << 1
-    q.pop.should eq 1
+      q = PriorityQueue(Int32).build
+      q << 1
+      q.pop.should eq 1
 
-    q = PriorityQueue(Int32).build
-    q << 1
-    q << 2
-    q.pop.should eq 2
+      q = PriorityQueue(Int32).build
+      q << 1
+      q << 2
+      q.pop.should eq 2
 
-    q = PriorityQueue(Int32).build
-    q << 2
-    q << 1
-    q.pop.should eq 2
+      q = PriorityQueue(Int32).build
+      q << 2
+      q << 1
+      q.pop.should eq 2
 
-    q = PriorityQueue(Int32).build
-    q << 2
-    q.pop.should eq 2
-    q << 1
-    q.pop.should eq 1
+      q = PriorityQueue(Int32).build
+      q << 2
+      q.pop.should eq 2
+      q << 1
+      q.pop.should eq 1
 
-    q = PriorityQueue(Int32).build
-    q << 3
-    q << 1
-    q << 2
-    q << 5
-    q << 4
-    q.pop.should eq 5
-    q.pop.should eq 4
-    q.pop.should eq 3
-    q.pop.should eq 2
-    q.pop.should eq 1
+      q = PriorityQueue(Int32).build
+      q << 3
+      q << 1
+      q << 2
+      q << 5
+      q << 4
+      q.pop.should eq 5
+      q.pop.should eq 4
+      q.pop.should eq 3
+      q.pop.should eq 2
+      q.pop.should eq 1
 
-    q = PriorityQueue(Int32).build
-    q << 97
-    q << 97
-    q << 85
-    q << 85
-    q << 84
-    q.pop.should eq 97
-    q.pop.should eq 97
-    q.pop.should eq 85
-    q.pop.should eq 85
-    q.pop.should eq 84
+      q = PriorityQueue(Int32).build
+      q << 97
+      q << 97
+      q << 85
+      q << 85
+      q << 84
+      q.pop.should eq 97
+      q.pop.should eq 97
+      q.pop.should eq 85
+      q.pop.should eq 85
+      q.pop.should eq 84
 
-    q = PriorityQueue(Int32).build
-    q << 84
-    q << 85
-    q << 85
-    q << 97
-    q << 97
-    q.pop.should eq 97
-    q.pop.should eq 97
-    q.pop.should eq 85
-    q.pop.should eq 85
-    q.pop.should eq 84
-  end
+      q = PriorityQueue(Int32).build
+      q << 84
+      q << 85
+      q << 85
+      q << 97
+      q << 97
+      q.pop.should eq 97
+      q.pop.should eq 97
+      q.pop.should eq 85
+      q.pop.should eq 85
+      q.pop.should eq 84
+    end
 
     it "raises `IndexError` if array is of 0 size" do
       q = PriorityQueue(Int32).build
@@ -68,6 +68,32 @@ describe PriorityQueue do
       q << 1
       q.pop?
       expect_raises(IndexError) { q.pop }
+    end
+  end
+
+  describe "#pop?" do
+    it "returns the value of max priority" do
+      q = PriorityQueue(Int32).build
+      q << 3
+      q << 1
+      q << 2
+      q << 5
+      q << 4
+      q.pop.should eq 5
+      q.pop.should eq 4
+      q.pop.should eq 3
+      q.pop.should eq 2
+      q.pop.should eq 1
+    end
+
+    it "returns nil if array is of 0 size" do
+      q = PriorityQueue(Int32).build
+      q.pop?.should be_nil
+
+      q = PriorityQueue(Int32).build
+      q << 1
+      q.pop?
+      q.pop?.should be_nil
     end
   end
 
