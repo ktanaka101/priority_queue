@@ -1,6 +1,6 @@
 # priority_queue
 
-TODO: Write a description here
+Priority queue for Crystal
 
 ## Installation
 
@@ -18,13 +18,20 @@ TODO: Write a description here
 
 ```crystal
 require "priority_queue"
+
+q = PriorityQueue(Int32).build
+q << 3
+q << 1
+q << 2
+q << 5
+q << 4
+
+q.pop #=> 5
+q.pop #=> 4
+q.pop #=> 3
+q.pop #=> 2
+q.pop #=> 1
 ```
-
-TODO: Write usage instructions here
-
-## Development
-
-TODO: Write development instructions here
 
 ## Contributing
 
