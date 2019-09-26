@@ -1,7 +1,8 @@
 require "./spec_helper"
 
 describe PriorityQueue do
-  it "#pop return max value" do
+  describe "#pop" do
+    it "returns the value of max priority" do
     q = PriorityQueue(Int32).build
     q << 1
     q.pop.should eq 1
@@ -57,6 +58,17 @@ describe PriorityQueue do
     q.pop.should eq 85
     q.pop.should eq 85
     q.pop.should eq 84
+  end
+
+    it "raises `IndexError` if array is of 0 size" do
+      q = PriorityQueue(Int32).build
+      expect_raises(IndexError) { q.pop }
+
+      q = PriorityQueue(Int32).build
+      q << 1
+      q.pop?
+      expect_raises(IndexError) { q.pop }
+    end
   end
 
   [
