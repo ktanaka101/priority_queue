@@ -45,11 +45,11 @@ module PriorityQueue(T)
       @a[i] = key
 
       c_idx = i
-      p_idx = (c_idx - 1) / 2
+      p_idx = (c_idx - 1) // 2
       while c_idx > 0 && @a[p_idx] < @a[c_idx]
         @a.swap(p_idx, c_idx)
-        c_idx = (c_idx - 1) / 2
-        p_idx = (c_idx - 1) / 2
+        c_idx = (c_idx - 1) // 2
+        p_idx = (c_idx - 1) // 2
       end
     end
 
