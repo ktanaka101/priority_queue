@@ -31,6 +31,14 @@ q.pop #=> 4
 q.pop #=> 3
 q.pop #=> 2
 q.pop #=> 1
+
+# #pop raises IndexError if empty
+q = PriorityQueue(Int32).build
+q.pop #=> raise IndexError
+
+# #pop? returns nil if empty
+q = PriorityQueue(Int32).build
+q.pop? #=> nil
 ```
 
 ## Contributing
